@@ -3,6 +3,7 @@ import { Algorithm } from "@/types";
 import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
 import { InlineMath } from "react-katex";
+import Tag from "./Tag";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -78,9 +79,7 @@ export default function AlgoSelectModal({ onSave }: Props) {
                   {/* <div className="stat-desc">↗︎ 40 (2%)</div> */}
                   <div className="text-sm">
                     {algo.tags.map((tag) => (
-                      <div key={tag} className="badge badge-accent mx-1 mb-1">
-                        {tag}
-                      </div>
+                      <Tag key={tag} name={tag} />
                     ))}
                   </div>
                 </div>

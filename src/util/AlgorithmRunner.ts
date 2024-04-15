@@ -2,7 +2,6 @@ import { ALGORITHM_KEYS_MAP } from "@/data/algorithms";
 
 export class AlgorithmRunner {
   LOOP_TIMES = 10000;
-  TEST_DATA_ARR_LENGTH = 1000;
 
   data: number[] = [];
 
@@ -16,12 +15,6 @@ export class AlgorithmRunner {
     [ALGORITHM_KEYS_MAP.heap_sort]: () => this.heapSort(),
     [ALGORITHM_KEYS_MAP.count_sort]: () => this.countSort(),
   };
-
-  // constructor() {
-  //   for (let i = 0; i < this.TEST_DATA_ARR_LENGTH; i++) {
-  //     this.data.push(Math.ceil(Math.random() * 1000));
-  //   }
-  // }
 
   run(keys: string[], data: number[]): string[] {
     const runTimes = [];

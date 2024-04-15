@@ -2,7 +2,7 @@ import { CogIcon, PlayIcon } from "@heroicons/react/16/solid";
 
 export default function ControlBar({ actions }: Props) {
   return (
-    <div className="absolute top-10 flex gap-x-8">
+    <div className="absolute bottom-10 flex gap-x-8">
       <div
         className="text-secondary cursor-pointer flex items-center justify-center"
         onClick={actions.run}

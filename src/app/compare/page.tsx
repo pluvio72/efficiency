@@ -58,7 +58,7 @@ export default function Compare() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-evenly p-48">
+    <main className="flex min-h-[95vh] flex-col items-center justify-evenly p-48">
       <ControlBar actions={{ run: runAlgos }} />
       <div className="container flex flex-col items-center">
         <span className="text-md mb-4">

@@ -7,11 +7,7 @@ const KEYS: { [key: string]: string } = {
 };
 
 export default function Tag({ name }: Props) {
-  return (
-    <div key={name} className={clsx("badge mx-1 mb-1", KEYS[name])}>
-      {name}
-    </div>
-  );
+  return <div className={clsx("badge mx-1 mb-1", KEYS[name])}>{name}</div>;
 }
 
 interface Props {

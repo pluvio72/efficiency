@@ -3,4 +3,5 @@ export type Algorithm = {
   name: string;
   tags: string[];
   complexity: string;
+  description: string;
 };

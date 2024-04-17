@@ -1,10 +1,20 @@
 "use client";
 
+import AlgoDetailsModal from "@/components/AlgoDetailsModal";
 import Tag from "@/components/Tag";
 import { ALGORITHMS } from "@/data/algorithms";
+import { Algorithm } from "@/types";
+import { useState } from "react";
 import { InlineMath } from "react-katex";
 
 export default function Browse() {
+  const [selected, setSelected] = useState<Algorithm>();
+
+  const onSelect = (algo: Algorithm) => {
+    setSelected(algo);
+    (document.getElementById("algo_details") as any).showModal();
+  };
+
   return (
     <div className="min-h-[95vh] p-4 flex flex-col">
       <div>
@@ -34,7 +44,7 @@ export default function Browse() {
               className={
                 "flex flex-row shadow transition cursor-pointer shadow-3xl mb-4 rounded-lg hover:bg-gray-700 bg-gray-800"
               }
-              onClick={() => {}}
+              onClick={() => onSelect(algo)}
             >
               <div className="stat place-items-left border-r">
                 <div className="stat-value text-2xl">{name[0]}</div>
@@ -58,6 +68,7 @@ export default function Browse() {
           );
         })}
       </div>
+      <AlgoDetailsModal details={selected} />
     </div>
   );
 }

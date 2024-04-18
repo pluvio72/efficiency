@@ -32,12 +32,16 @@ export default function AlgoDetailsModal({ details }: Props) {
               <div className="stat-desc">↘︎ 90 (14%)</div>
             </div>
           </div>
-          <div className="columns-2 flex-grow">
-            <div>
-              <span>Strengths:</span>
+          <div className="columns-2 flex-grow text-black">
+            <div className="bg-green-300 rounded-md p-4">
+              <div className="text-center">
+                <span className="font-bold text-center">Strengths</span>
+              </div>
             </div>
-            <div>
-              <span>Weaknesses:</span>
+            <div className="bg-red-300 rounded-md p-4">
+              <div className="text-center">
+                <span className="font-bold">Weaknesses</span>
+              </div>
             </div>
           </div>
         </div>

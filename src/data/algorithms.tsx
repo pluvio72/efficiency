@@ -12,6 +12,8 @@ export const ALGORITHMS = [
     },
     description:
       "Sunt in esse ipsum sunt excepteur proident occaecat.Sit aute tempor ex elit culpa sunt.Et deserunt reprehenderit aliqua elit mollit adipisicing aute. Eu veniam ullamco amet fugiat ut est reprehenderit deserunt ex ex aliquip incididunt culpa. Non irure dolore sit qui amet nisi laborum ea. Cupidatat officia eu adipisicing qui labore laboris eiusmod sint elit nulla esse aliqua. Reprehenderit exercitation consequat sint voluptate sit ullamco duis do ullamco esse nulla exercitation ut.",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "insertion_sort",
@@ -23,6 +25,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "quick_sort",
@@ -34,6 +38,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "merge_sort",
@@ -45,6 +51,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "heap_sort",
@@ -56,6 +64,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "count_sort",
@@ -67,6 +77,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "radix_sort",
@@ -78,6 +90,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "bucket_sort",
@@ -89,6 +103,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "bingo_sort",
@@ -100,6 +116,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "shell_sort",
@@ -111,6 +129,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
   {
     key: "tim_sort",
@@ -122,6 +142,8 @@ export const ALGORITHMS = [
       worstCase: "",
     },
     description: "",
+    strengths: [],
+    weaknesses: [],
   },
 ] as const satisfies Algorithm[];
 

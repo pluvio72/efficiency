@@ -8,4 +8,6 @@ export type Algorithm = {
     worstCase?: string;
   };
   description: string;
+  strengths: string[];
+  weaknesses: string[];
 };

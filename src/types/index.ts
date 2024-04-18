@@ -2,6 +2,10 @@ export type Algorithm = {
   key: string;
   name: string;
   tags: string[];
-  complexity: string;
+  complexity: {
+    bigO: string;
+    bestCase?: string;
+    worstCase?: string;
+  };
   description: string;
 };

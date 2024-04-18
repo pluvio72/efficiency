@@ -86,7 +86,7 @@ export default function AlgoSelectModal({ onSave }: Props) {
                 <div className="stat place-items-center border-l">
                   <div className="stat-title">Complexity</div>
                   <div className="stat-value text-3xl">
-                    <InlineMath math={algo.complexity} />
+                    <InlineMath math={algo.complexity.bigO} />
                   </div>
                   {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
                 </div>

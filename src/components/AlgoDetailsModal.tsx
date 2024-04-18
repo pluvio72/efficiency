@@ -1,4 +1,5 @@
 import { Algorithm } from "@/types";
+import { InlineMath } from "react-katex";
 
 export default function AlgoDetailsModal({ details }: Props) {
   return (
@@ -10,19 +11,33 @@ export default function AlgoDetailsModal({ details }: Props) {
         <div className="flex flex-row">
           <div className="stats stats-vertical shadow">
             <div className="stat">
-              <div className="stat-title">Downloads</div>
-              <div className="stat-value">31K</div>
-              <div className="stat-desc">Jan 1st - Feb 1st</div>
+              <div className="stat-title">Big O</div>
+              <div className="stat-value">
+                <InlineMath math={details?.complexity.bigO} />
+              </div>
+              <div className="stat-desc">Top 1</div>
             </div>
             <div className="stat">
-              <div className="stat-title">New Users</div>
-              <div className="stat-value">4,200</div>
-              <div className="stat-desc">↗︎ 400 (22%)</div>
+              <div className="stat-title">Best Case</div>
+              <div className="stat-value">
+                {details?.complexity.bestCase || "NA"}
+              </div>
+              <div className="stat-desc">↗︎ 400 </div>
             </div>
             <div className="stat">
-              <div className="stat-title">New Registers</div>
-              <div className="stat-value">1,200</div>
+              <div className="stat-title">Worst Case</div>
+              <div className="stat-value">
+                {details?.complexity.worstCase || "NA"}
+              </div>
               <div className="stat-desc">↘︎ 90 (14%)</div>
+            </div>
+          </div>
+          <div className="columns-2 flex-grow">
+            <div>
+              <span>Strengths:</span>
+            </div>
+            <div>
+              <span>Weaknesses:</span>
             </div>
           </div>
         </div>

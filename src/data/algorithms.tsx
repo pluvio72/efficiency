@@ -12,8 +12,8 @@ export const ALGORITHMS = [
     },
     description:
       "Sunt in esse ipsum sunt excepteur proident occaecat.Sit aute tempor ex elit culpa sunt.Et deserunt reprehenderit aliqua elit mollit adipisicing aute. Eu veniam ullamco amet fugiat ut est reprehenderit deserunt ex ex aliquip incididunt culpa. Non irure dolore sit qui amet nisi laborum ea. Cupidatat officia eu adipisicing qui labore laboris eiusmod sint elit nulla esse aliqua. Reprehenderit exercitation consequat sint voluptate sit ullamco duis do ullamco esse nulla exercitation ut.",
-    strengths: [],
-    weaknesses: [],
+    strengths: ["Stable", "Easy to understand & implement"],
+    weaknesses: ["Slow for large data sets"],
   },
   {
     key: "insertion_sort",

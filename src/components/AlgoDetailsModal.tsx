@@ -9,7 +9,7 @@ export default function AlgoDetailsModal({ details }: Props) {
         <div className="w-full h-[300px] bg-base-300 rounded-md"></div>
         <p className="py-4">{details?.description}</p>
         <div className="flex flex-row">
-          <div className="stats stats-vertical shadow">
+          <div className="stats shadow">
             <div className="stat">
               <div className="stat-title">Big O</div>
               <div className="stat-value">
@@ -37,19 +37,31 @@ export default function AlgoDetailsModal({ details }: Props) {
               <div className="text-center">
                 <span className="font-bold text-center">Strengths</span>
               </div>
+              <div>
+                <ul>
+                  {details?.strengths.map((strength) => (
+                    <li key={strength}>{strength}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
             <div className="bg-red-300 rounded-md p-4">
               <div className="text-center">
                 <span className="font-bold">Weaknesses</span>
               </div>
+              <div>
+                <ul>
+                  {details?.weaknesses.map((weakness) => (
+                    <li key={weakness}>{weakness}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-        <div className="modal-action">
-          <form method="dialog">
-            <button className="btn">Close</button>
-          </form>
-        </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>Close</button>
+        </form>
       </div>
     </dialog>
   );

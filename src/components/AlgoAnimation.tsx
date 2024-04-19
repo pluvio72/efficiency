@@ -53,7 +53,7 @@ export default function AlgoAnimation({}: Props) {
 
   return (
     <div
-      className={`flex flex-row w-full h-full items-center justify-center gap-x-[${CARD_PADDING}px]`}
+      className={`relative flex flex-row w-full h-full items-center justify-center gap-x-[${CARD_PADDING}px]`}
     >
       {data.map((item) => (
         <div
@@ -66,9 +66,14 @@ export default function AlgoAnimation({}: Props) {
           className={`rounded-md card-item-${item}`}
         />
       ))}
-      <button className="btn" onClick={animate}>
-        Animate
-      </button>
+      <div className="absolute top-1 text-center">
+        <span
+          className="text-primary cursor-pointer hover:text-primary-400"
+          onClick={animate}
+        >
+          Animate
+        </span>
+      </div>
     </div>
   );
 }

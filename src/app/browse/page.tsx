@@ -61,7 +61,7 @@ export default function Browse() {
               <div className="stat place-items-center border-l">
                 <div className="stat-title">Complexity</div>
                 <div className="stat-value text-3xl">
-                  <InlineMath math={algo.complexity.bigO} />
+                  <InlineMath math={algo.complexity.bigO.value} />
                 </div>
               </div>
             </div>

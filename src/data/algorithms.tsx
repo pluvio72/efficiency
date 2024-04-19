@@ -6,9 +6,21 @@ export const ALGORITHMS = [
     name: "Bubble Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "n^2",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
     },
     description:
       "Sunt in esse ipsum sunt excepteur proident occaecat.Sit aute tempor ex elit culpa sunt.Et deserunt reprehenderit aliqua elit mollit adipisicing aute. Eu veniam ullamco amet fugiat ut est reprehenderit deserunt ex ex aliquip incididunt culpa. Non irure dolore sit qui amet nisi laborum ea. Cupidatat officia eu adipisicing qui labore laboris eiusmod sint elit nulla esse aliqua. Reprehenderit exercitation consequat sint voluptate sit ullamco duis do ullamco esse nulla exercitation ut.",
@@ -20,9 +32,21 @@ export const ALGORITHMS = [
     name: "Insertion Sort",
     tags: ["Sort", "Stable"],
     complexity: {
-      bigO: "n^2",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -33,9 +57,21 @@ export const ALGORITHMS = [
     name: "Quick Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "2n",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "2n",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -46,9 +82,21 @@ export const ALGORITHMS = [
     name: "Merge Sort",
     tags: ["Stable", "Sort"],
     complexity: {
-      bigO: "nlog(n)",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "nlog(n)",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -59,9 +107,21 @@ export const ALGORITHMS = [
     name: "Heap Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "nlog(n)",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "nlog(n)",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -72,9 +132,21 @@ export const ALGORITHMS = [
     name: "Count Sort",
     tags: ["Sort", "Stable"],
     complexity: {
-      bigO: "n+m",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n+m",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -85,9 +157,21 @@ export const ALGORITHMS = [
     name: "Radix Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "d(n+b)",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "d(n+b)",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -98,9 +182,21 @@ export const ALGORITHMS = [
     name: "Bucket Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "n^2",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -111,9 +207,21 @@ export const ALGORITHMS = [
     name: "Bingo Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "n+m^2",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n+m^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -124,9 +232,21 @@ export const ALGORITHMS = [
     name: "Shell Sort",
     tags: ["Sort"],
     complexity: {
-      bigO: "n^2",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "n^2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Quadratic",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],
@@ -137,9 +257,21 @@ export const ALGORITHMS = [
     name: "Tim Sort",
     tags: ["Stable", "Sort"],
     complexity: {
-      bigO: "nlog(n)",
-      bestCase: "",
-      worstCase: "",
+      bigO: {
+        value: "nlog(n)",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
+      worstCase: {
+        value: "",
+        type: "Linear",
+        toolTip: "",
+      },
     },
     description: "",
     strengths: [],

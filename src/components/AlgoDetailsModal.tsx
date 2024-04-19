@@ -12,24 +12,36 @@ export default function AlgoDetailsModal({ details }: Props) {
           <div className="stats shadow">
             <div className="stat">
               <div className="stat-title">Big O</div>
-              <div className="stat-value">
-                <InlineMath math={details?.complexity.bigO} />
+              <div className="stat-value text-center">
+                <InlineMath math={details?.complexity.bigO.value} />
               </div>
-              <div className="stat-desc">Top 1</div>
+              <div className="stat-desc">Quadratic</div>
             </div>
             <div className="stat">
               <div className="stat-title">Best Case</div>
-              <div className="stat-value">
-                {details?.complexity.bestCase || "NA"}
+              <div className="stat-value text-center">
+                {details?.complexity.bestCase.value ? (
+                  <InlineMath math={details?.complexity.bestCase.value} />
+                ) : (
+                  "NA"
+                )}
               </div>
-              <div className="stat-desc">↗︎ 400 </div>
+              <div className="stat-desc">
+                {details?.complexity.bestCase.type}
+              </div>
             </div>
             <div className="stat">
               <div className="stat-title">Worst Case</div>
-              <div className="stat-value">
-                {details?.complexity.worstCase || "NA"}
+              <div className="stat-value text-center">
+                {details?.complexity.worstCase.value ? (
+                  <InlineMath math={details?.complexity.worstCase.value} />
+                ) : (
+                  "NA"
+                )}
               </div>
-              <div className="stat-desc">↘︎ 90 (14%)</div>
+              <div className="stat-desc">
+                {details?.complexity.worstCase.type}
+              </div>
             </div>
           </div>
           <div className="columns-2 flex-grow text-black">

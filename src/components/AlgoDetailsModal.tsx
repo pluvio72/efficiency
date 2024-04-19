@@ -1,12 +1,15 @@
 import { Algorithm } from "@/types";
 import { InlineMath } from "react-katex";
+import AlgoAnimation from "./AlgoAnimation";
 
 export default function AlgoDetailsModal({ details }: Props) {
   return (
     <dialog id="algo_details" className="modal">
       <div className="modal-box">
         <h3 className="text-center mb-4 font-bold text-lg">{details?.name}</h3>
-        <div className="w-full h-[300px] bg-base-300 rounded-md"></div>
+        <div className="w-full h-[300px] bg-base-300 rounded-md">
+          <AlgoAnimation />
+        </div>
         <p className="py-4">{details?.description}</p>
         <div className="flex flex-row">
           <div className="stats shadow">

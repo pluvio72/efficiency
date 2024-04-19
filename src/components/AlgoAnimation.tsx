@@ -6,6 +6,7 @@ import anime from "animejs";
 import { AnimationManager } from "@/util/Animation";
 
 const CARD_WIDTH = 60;
+const CARD_PADDING = 10;
 const CARD_HEIGHT = 100;
 
 export default function AlgoAnimation({}: Props) {
@@ -31,12 +32,13 @@ export default function AlgoAnimation({}: Props) {
               iter++;
               continue;
             } else {
-              // console.log(
-              //   `Changing: ${_data[j]}, moving spots: (${(i - j) * CARD_WIDTH})`
-              // );
+              let diff = i - j;
+              let val = diff * CARD_WIDTH + diff * CARD_PADDING;
+
+              console.log(`movin el: ${_data[j]}, pixels: ${val}`);
               anime({
                 targets: `.card-item-${_data[j]}`,
-                translateX: (i - j) * CARD_WIDTH,
+                translateX: val,
               });
               iter++;
               continue;
@@ -50,7 +52,9 @@ export default function AlgoAnimation({}: Props) {
   };
 
   return (
-    <div className="flex flex-row w-full h-full items-center justify-center">
+    <div
+      className={`flex flex-row w-full h-full items-center justify-center gap-x-[${CARD_PADDING}px]`}
+    >
       {data.map((item) => (
         <div
           key={item}

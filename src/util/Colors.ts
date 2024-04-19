@@ -8,7 +8,6 @@ function hex(c: number) {
   return s.charAt((i - (i % 16)) / 16) + s.charAt(i % 16);
 }
 
-/* Convert an RGB triplet to a hex string */
 function convertToHex(rgb: number[]) {
   return "#" + hex(rgb[0]) + hex(rgb[1]) + hex(rgb[2]);
 }
@@ -18,7 +17,6 @@ function trim(s: string) {
   return s.charAt(0) == "#" ? s.substring(1, 7) : s;
 }
 
-/* Convert a hex string to an RGB triplet */
 function convertToRGB(hex: string) {
   var color = [];
   color[0] = parseInt(trim(hex).substring(0, 2), 16);

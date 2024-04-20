@@ -6,10 +6,9 @@ export const KEY_MAP = {
   [ALGORITHM_KEYS_MAP.quick_sort]: quickSort,
 };
 
-// make shallow copy of param
-const wrapper = (func: (data: number[]) => void, data: number[]) => {
-  const _data = [...data];
-  return () => func(_data);
+export const GENERATOR_KEY_MAP = {
+  [ALGORITHM_KEYS_MAP.bubble_sort]: generatorBubbleSort,
+  [ALGORITHM_KEYS_MAP.insertion_sort]: generatorInsertionSort,
 };
 
 export function bubbleSort(arr: number[]) {
@@ -19,6 +18,19 @@ export function bubbleSort(arr: number[]) {
         let temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
+      }
+    }
+  }
+}
+
+function* generatorBubbleSort(arr: number[]) {
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        var temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+        yield arr;
       }
     }
   }
@@ -36,6 +48,22 @@ export function insertionSort(arr: number[]) {
       j = j - 1;
     }
     arr[j + 1] = key;
+  }
+}
+
+function* generatorInsertionSort(arr: number[]) {
+  let j, key;
+
+  for (let i = 1; i < arr.length; i++) {
+    key = arr[i];
+    j = i - 1;
+
+    while (j >= 0 && arr[j] > key) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
+    arr[j + 1] = key;
+    yield arr;
   }
 }
 

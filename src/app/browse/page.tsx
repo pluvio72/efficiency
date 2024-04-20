@@ -9,10 +9,12 @@ import { InlineMath } from "react-katex";
 
 export default function Browse() {
   const [selected, setSelected] = useState<Algorithm>();
+  const [detailModelOpen, setDetailModalOpen] = useState(false);
 
   const onSelect = (algo: Algorithm) => {
     setSelected(algo);
     (document.getElementById("algo_details") as any).showModal();
+    setDetailModalOpen(true);
   };
 
   return (
@@ -68,7 +70,11 @@ export default function Browse() {
           );
         })}
       </div>
-      <AlgoDetailsModal details={selected} />
+      <AlgoDetailsModal
+        details={selected}
+        open={detailModelOpen}
+        setOpen={setDetailModalOpen}
+      />
     </div>
   );
 }

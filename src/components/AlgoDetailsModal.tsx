@@ -1,9 +1,10 @@
+"use client";
+
 import { Algorithm } from "@/types";
 import { InlineMath } from "react-katex";
 import AlgoAnimation from "./AlgoAnimation";
-import { KEY_MAP } from "@/util/algorithm-runner/data/SortingAlgorithms";
 
-export default function AlgoDetailsModal({ details }: Props) {
+export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
   if (!details) return <></>;
 
   return (
@@ -11,7 +12,7 @@ export default function AlgoDetailsModal({ details }: Props) {
       <div className="modal-box">
         <h3 className="text-center mb-4 font-bold text-lg">{details?.name}</h3>
         <div className="w-full h-[300px] bg-base-300 rounded-md">
-          <AlgoAnimation func={KEY_MAP[details.key]} />
+          <AlgoAnimation details={details} parentModalOpen={open} />
         </div>
         <p className="py-4">{details?.description}</p>
         <div className="flex flex-row">
@@ -78,7 +79,9 @@ export default function AlgoDetailsModal({ details }: Props) {
           </div>
         </div>
         <form method="dialog" className="modal-backdrop mt-2">
-          <button className="btn">Close</button>
+          <button className="btn" onClick={() => setOpen(false)}>
+            Close
+          </button>
         </form>
       </div>
     </dialog>
@@ -87,4 +90,6 @@ export default function AlgoDetailsModal({ details }: Props) {
 
 interface Props {
   details?: Algorithm;
+  open: boolean;
+  setOpen: (newState: boolean) => void;
 }

@@ -1,25 +1,35 @@
 "use client";
 
 import { generateColorArray } from "@/util/Colors";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import anime from "animejs";
-import { AnimationManager } from "@/util/Animation";
 import { EyeIcon, PlayIcon } from "@heroicons/react/16/solid";
 import CodeViewModal from "./CodeViewModal";
+import { Algorithm } from "@/types";
+import {
+  GENERATOR_KEY_MAP,
+  KEY_MAP,
+} from "@/util/algorithm-runner/data/SortingAlgorithms";
 
 const CARD_WIDTH = 60;
 const CARD_PADDING = 10;
 const CARD_HEIGHT = 100;
 
-export default function AlgoAnimation({ func }: Props) {
+export default function AlgoAnimation({ details, parentModalOpen }: Props) {
   const [data, setData] = useState<number[]>([8, 5, 6, 3, 1, 2, 4, 7]);
 
   const cols = generateColorArray("#ffffff", "#000000", data.length);
 
-  const anim = new AnimationManager();
+  useEffect(() => {
+    if (!parentModalOpen) {
+      setData([8, 5, 6, 3, 1, 2, 4, 7]);
+      // t1.seek(0);
+    }
+  }, [parentModalOpen]);
 
   const animate = async () => {
-    const generator = anim.bubbleSort(data);
+    const generator = GENERATOR_KEY_MAP[details.key](data);
+    const t1 = anime.timeline({}, 100);
 
     let result = generator.next();
     let _data = [...data];
@@ -38,7 +48,7 @@ export default function AlgoAnimation({ func }: Props) {
               let val = diff * CARD_WIDTH + diff * CARD_PADDING;
 
               // console.log(`movin el: ${_data[j]}, pixels: ${val}`);
-              anime({
+              t1.add({
                 targets: `.card-item-${_data[j]}`,
                 translateX: val,
               });
@@ -47,7 +57,7 @@ export default function AlgoAnimation({ func }: Props) {
             }
           }
         }
-        await new Promise((r) => setTimeout(r, 50));
+        // await new Promise((r) => setTimeout(r, 50));
       }
       result = generator.next();
     }
@@ -87,11 +97,12 @@ export default function AlgoAnimation({ func }: Props) {
           Play <PlayIcon className="h-4 w-4" />
         </span>
       </div>
-      <CodeViewModal func={func} />
+      <CodeViewModal func={KEY_MAP[details.key]} />
     </div>
   );
 }
 
 interface Props {
-  func: (data: number[]) => void;
+  details: Algorithm;
+  parentModalOpen: boolean;
 }

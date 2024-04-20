@@ -74,8 +74,8 @@ export default function AlgoDetailsModal({ details }: Props) {
             </div>
           </div>
         </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>Close</button>
+        <form method="dialog" className="modal-backdrop mt-2">
+          <button className="btn">Close</button>
         </form>
       </div>
     </dialog>

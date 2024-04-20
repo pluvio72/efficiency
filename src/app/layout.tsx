@@ -25,14 +25,10 @@ export default function RootLayout({
           <div className="flex-none">
             <ul className="menu menu-horizontal px-1">
               <li>
-                <a>
-                  <Link href="/browse">Browse</Link>
-                </a>
+                <Link href="/browse">Browse</Link>
               </li>
               <li>
-                <a>
-                  <Link href="/compare">Compare</Link>
-                </a>
+                <Link href="/compare">Compare</Link>
               </li>
             </ul>
           </div>

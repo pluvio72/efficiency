@@ -4,8 +4,13 @@ import { ClipboardDocumentIcon } from "@heroicons/react/16/solid";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
-export default function CodeViewModal() {
-  const copyToClipboard = () => {};
+import { bubbleSort } from "@/util/algorithm-runner/data/SortingAlgorithms";
+
+export default function CodeViewModal({ func }: Props) {
+  const copyToClipboard = () => {
+    console.log(bubbleSort.toString());
+    // navigator.clipboard.writeText(bubbleSort.toString());
+  };
 
   return (
     <dialog id="code_view" className="modal">
@@ -13,7 +18,7 @@ export default function CodeViewModal() {
         <form method="dialog">
           {/* if there is a button in form, it will close the modal */}
           <span
-            className="absolute right-10 top-3 text-sm flex items-center cursor-pointer"
+            className="absolute right-12 top-3 text-sm flex items-center cursor-pointer"
             onClick={copyToClipboard}
           >
             Copy <ClipboardDocumentIcon className="h-4 w-4" />
@@ -22,20 +27,18 @@ export default function CodeViewModal() {
             ✕
           </button>
         </form>
-        <SyntaxHighlighter language="javascript" style={atomOneDark}>
-          {`
-  for (var i = 0; i < data.length; i++) {
-    for (var j = 0; j < data.length - i - 1; j++) {
-      if (data[j] > data[j + 1]) {
-        var temp = data[j];
-        data[j] = data[j + 1];
-        data[j + 1] = temp;
-      }
-    }
-  }
-          `}
+        <SyntaxHighlighter
+          customStyle={{ padding: 30, paddingLeft: 25 }}
+          language="javascript"
+          style={atomOneDark}
+        >
+          {func.toString()}
         </SyntaxHighlighter>
       </div>
     </dialog>
   );
+}
+
+interface Props {
+  func: (data: number[]) => void;
 }

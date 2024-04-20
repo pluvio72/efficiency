@@ -1,6 +1,7 @@
 import { Algorithm } from "@/types";
 import { InlineMath } from "react-katex";
 import AlgoAnimation from "./AlgoAnimation";
+import { KEY_MAP } from "@/util/algorithm-runner/data/SortingAlgorithms";
 
 export default function AlgoDetailsModal({ details }: Props) {
   return (
@@ -8,7 +9,7 @@ export default function AlgoDetailsModal({ details }: Props) {
       <div className="modal-box">
         <h3 className="text-center mb-4 font-bold text-lg">{details?.name}</h3>
         <div className="w-full h-[300px] bg-base-300 rounded-md">
-          <AlgoAnimation />
+          <AlgoAnimation func={KEY_MAP[details.key]} />
         </div>
         <p className="py-4">{details?.description}</p>
         <div className="flex flex-row">
@@ -83,5 +84,5 @@ export default function AlgoDetailsModal({ details }: Props) {
 }
 
 interface Props {
-  details?: Algorithm;
+  details: Algorithm;
 }

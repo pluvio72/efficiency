@@ -11,7 +11,7 @@ const CARD_WIDTH = 60;
 const CARD_PADDING = 10;
 const CARD_HEIGHT = 100;
 
-export default function AlgoAnimation({}: Props) {
+export default function AlgoAnimation({ func }: Props) {
   const [data, setData] = useState<number[]>([8, 5, 6, 3, 1, 2, 4, 7]);
 
   const cols = generateColorArray("#ffffff", "#000000", data.length);
@@ -87,9 +87,11 @@ export default function AlgoAnimation({}: Props) {
           Play <PlayIcon className="h-4 w-4" />
         </span>
       </div>
-      <CodeViewModal />
+      <CodeViewModal func={func} />
     </div>
   );
 }
 
-interface Props {}
+interface Props {
+  func: (data: number[]) => void;
+}

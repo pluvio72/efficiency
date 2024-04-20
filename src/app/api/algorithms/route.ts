@@ -1,4 +1,4 @@
-import { AlgorithmRunner } from "@/util/AlgorithmRunner";
+import { AlgorithmRunner } from "@/util/algorithm-runner/AlgorithmRunner";
 
 type RequestData = {
   keys: string[];

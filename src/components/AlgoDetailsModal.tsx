@@ -4,6 +4,8 @@ import AlgoAnimation from "./AlgoAnimation";
 import { KEY_MAP } from "@/util/algorithm-runner/data/SortingAlgorithms";
 
 export default function AlgoDetailsModal({ details }: Props) {
+  if (!details) return <></>;
+
   return (
     <dialog id="algo_details" className="modal">
       <div className="modal-box">
@@ -84,5 +86,5 @@ export default function AlgoDetailsModal({ details }: Props) {
 }
 
 interface Props {
-  details: Algorithm;
+  details?: Algorithm;
 }

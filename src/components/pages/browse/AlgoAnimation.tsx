@@ -36,6 +36,8 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
     }
   }, [parentModalOpen, reset]);
 
+  if (!details) return <></>;
+
   const animate = async () => {
     const generator = GENERATOR_KEY_MAP[details.key]([...data]);
 
@@ -114,6 +116,6 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
 }
 
 interface Props {
-  details: Algorithm;
+  details?: Algorithm;
   parentModalOpen: boolean;
 }

@@ -2,19 +2,21 @@
 
 import { Algorithm } from "@/types";
 import AlgoAnimation from "./AlgoAnimation";
-import { forwardRef } from "react";
 import Tex from "@matejmazur/react-katex";
+import {
+  Dialog,
+  DialogHeader,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
-export default forwardRef<HTMLDialogElement, Props>(function AlgoDetailsModal(
-  { details, open, setOpen },
-  ref
-) {
-  if (!details) return <></>;
-
+export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
   return (
-    <dialog id="algo_details" className="modal" ref={ref}>
-      <div className="modal-box">
-        <h3 className="text-center mb-4 font-bold text-lg">{details?.name}</h3>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="w-[70%]">
+        <DialogHeader>
+          <DialogTitle>{details?.name}</DialogTitle>
+        </DialogHeader>
         <div className="w-full h-[300px] bg-base-300 rounded-md">
           <AlgoAnimation details={details} parentModalOpen={open} />
         </div>
@@ -87,10 +89,10 @@ export default forwardRef<HTMLDialogElement, Props>(function AlgoDetailsModal(
             Close
           </button>
         </form>
-      </div>
-    </dialog>
+      </DialogContent>
+    </Dialog>
   );
-});
+}
 
 interface Props {
   details?: Algorithm;

@@ -1,9 +1,9 @@
 "use client";
 
 import { generateColorArray } from "@/util/Colors";
-import { useEffect, useState } from "react";
-import anime from "animejs";
-import { EyeIcon, PlayIcon } from "@heroicons/react/16/solid";
+import { useCallback, useEffect, useState } from "react";
+import anime, { AnimeInstance } from "animejs";
+import { ArrowPathIcon, EyeIcon, PlayIcon } from "@heroicons/react/16/solid";
 import CodeViewModal from "./CodeViewModal";
 import { Algorithm } from "@/types";
 import {
@@ -15,26 +15,34 @@ const CARD_WIDTH = 60;
 const CARD_PADDING = 10;
 const CARD_HEIGHT = 100;
 
+const DEFAULT_DATA = [8, 5, 6, 3, 1, 2, 4, 7];
+
 export default function AlgoAnimation({ details, parentModalOpen }: Props) {
-  const [data, setData] = useState<number[]>([8, 5, 6, 3, 1, 2, 4, 7]);
+  // TODO: rethink use of data here as state, currently being used as normal var
+  const [data, setData] = useState<number[]>(DEFAULT_DATA);
+  const [animations, setAnimations] = useState<AnimeInstance[]>([]);
 
   const cols = generateColorArray("#ffffff", "#000000", data.length);
 
+  const reset = useCallback(() => {
+    anime({
+      targets: ".card-item",
+      translateX: 0,
+    });
+  }, []);
+
   useEffect(() => {
     if (!parentModalOpen) {
-      for (let i = 0; i < data.length; i++) {
-        const items = document.getElementsByClassName(`card-item-${data[i]}`);
-        items[0].classList.remove("transform");
-      }
+      reset();
     }
-  }, [parentModalOpen]);
+  }, [parentModalOpen, reset]);
 
   const animate = async () => {
     const generator = GENERATOR_KEY_MAP[details.key]([...data]);
+    const _animations = [];
 
     let result = generator.next();
     let _data = [...data];
-    let iter = 0;
 
     while (!result.done) {
       for (let i = 0; i < result.value.length; i++) {
@@ -42,26 +50,28 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
           if (result.value[i] === _data[j]) {
             // if index is same then it hasn't changed and skip over
             if (i === j) {
-              iter++;
               continue;
             } else {
               let diff = i - j;
               let val = diff * CARD_WIDTH + diff * CARD_PADDING;
 
               // console.log(`movin el: ${_data[j]}, pixels: ${val}`);
-              anime({
-                targets: `.card-item-${_data[j]}`,
-                translateX: val,
-              });
-              iter++;
+              _animations.push(
+                anime({
+                  targets: `.card-item-${_data[j]}`,
+                  translateX: val,
+                })
+              );
               continue;
             }
           }
         }
-        // await new Promise((r) => setTimeout(r, 50));
+        await new Promise((r) => setTimeout(r, 50));
       }
       result = generator.next();
     }
+
+    setAnimations(_animations);
   };
 
   const showCode = () => {
@@ -80,7 +90,7 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
             width: CARD_WIDTH,
             height: CARD_HEIGHT,
           }}
-          className={`rounded-md card-item-${item}`}
+          className={`rounded-md card-item-${item} card-item`}
         />
       ))}
       <div className="absolute top-0 right-0 bg-gray-500 p-1 rounded-md flex">
@@ -90,6 +100,12 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
         >
           Code
           <EyeIcon className="ml-1 h-4 w-4" />
+        </span>
+        <span
+          className="text-black cursor-pointer text-sm flex border-r border-slate-700 items-center px-2"
+          onClick={reset}
+        >
+          Reset <ArrowPathIcon className="h-4 w-4 ml-1" />
         </span>
         <span
           className="text-black cursor-pointer text-sm flex items-center px-2"

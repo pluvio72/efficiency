@@ -4,7 +4,7 @@ import { generateColorArray } from "@/util/Colors";
 import { useCallback, useEffect, useState } from "react";
 import anime, { AnimeInstance } from "animejs";
 import { ArrowPathIcon, EyeIcon, PlayIcon } from "@heroicons/react/16/solid";
-import CodeViewModal from "./CodeViewModal";
+import CodeViewModal from "../../CodeViewModal";
 import { Algorithm } from "@/types";
 import {
   GENERATOR_KEY_MAP,
@@ -20,7 +20,6 @@ const DEFAULT_DATA = [8, 5, 6, 3, 1, 2, 4, 7];
 export default function AlgoAnimation({ details, parentModalOpen }: Props) {
   // TODO: rethink use of data here as state, currently being used as normal var
   const [data, setData] = useState<number[]>(DEFAULT_DATA);
-  const [animations, setAnimations] = useState<AnimeInstance[]>([]);
 
   const cols = generateColorArray("#ffffff", "#000000", data.length);
 
@@ -39,7 +38,6 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
 
   const animate = async () => {
     const generator = GENERATOR_KEY_MAP[details.key]([...data]);
-    const _animations = [];
 
     let result = generator.next();
     let _data = [...data];
@@ -56,12 +54,10 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
               let val = diff * CARD_WIDTH + diff * CARD_PADDING;
 
               // console.log(`movin el: ${_data[j]}, pixels: ${val}`);
-              _animations.push(
-                anime({
-                  targets: `.card-item-${_data[j]}`,
-                  translateX: val,
-                })
-              );
+              anime({
+                targets: `.card-item-${_data[j]}`,
+                translateX: val,
+              });
               continue;
             }
           }
@@ -70,8 +66,6 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
       }
       result = generator.next();
     }
-
-    setAnimations(_animations);
   };
 
   const showCode = () => {

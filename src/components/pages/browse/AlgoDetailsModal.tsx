@@ -1,14 +1,18 @@
 "use client";
 
 import { Algorithm } from "@/types";
-import { InlineMath } from "react-katex";
 import AlgoAnimation from "./AlgoAnimation";
+import { forwardRef } from "react";
+import Tex from "@matejmazur/react-katex";
 
-export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
+export default forwardRef<HTMLDialogElement, Props>(function AlgoDetailsModal(
+  { details, open, setOpen },
+  ref
+) {
   if (!details) return <></>;
 
   return (
-    <dialog id="algo_details" className="modal">
+    <dialog id="algo_details" className="modal" ref={ref}>
       <div className="modal-box">
         <h3 className="text-center mb-4 font-bold text-lg">{details?.name}</h3>
         <div className="w-full h-[300px] bg-base-300 rounded-md">
@@ -20,7 +24,7 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
             <div className="stat">
               <div className="stat-title">Big O</div>
               <div className="stat-value text-center">
-                <InlineMath math={details?.complexity.bigO.value} />
+                <Tex>{details?.complexity.bigO.value}</Tex>
               </div>
               <div className="stat-desc">Quadratic</div>
             </div>
@@ -28,7 +32,7 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
               <div className="stat-title">Best Case</div>
               <div className="stat-value text-center">
                 {details?.complexity.bestCase.value ? (
-                  <InlineMath math={details?.complexity.bestCase.value} />
+                  <Tex>{details?.complexity.bestCase.value}</Tex>
                 ) : (
                   "NA"
                 )}
@@ -41,7 +45,7 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
               <div className="stat-title">Worst Case</div>
               <div className="stat-value text-center">
                 {details?.complexity.worstCase.value ? (
-                  <InlineMath math={details?.complexity.worstCase.value} />
+                  <Tex>{details?.complexity.worstCase.value}</Tex>
                 ) : (
                   "NA"
                 )}
@@ -86,7 +90,7 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
       </div>
     </dialog>
   );
-}
+});
 
 interface Props {
   details?: Algorithm;

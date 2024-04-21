@@ -1,8 +1,6 @@
 "use client";
 
-import "katex/dist/katex.min.css";
-
-import AlgoSelectModal from "@/components/AlgoSelectModal";
+import AlgoSelectModal from "@/components/pages/compare/AlgoSelectModal";
 import ControlBar from "@/components/ControlBar";
 import { Algorithm } from "@/types";
 import { PencilIcon, PlusCircleIcon } from "@heroicons/react/16/solid";

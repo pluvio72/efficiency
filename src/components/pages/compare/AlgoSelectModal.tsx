@@ -2,8 +2,8 @@ import { ALGORITHMS } from "@/data/algorithms";
 import { Algorithm } from "@/types";
 import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
-import { InlineMath } from "react-katex";
-import Tag from "./Tag";
+import Tag from "../../ui/Tag";
+import Tex from "@matejmazur/react-katex";
 
 const ITEMS_PER_PAGE = 5;
 
@@ -86,7 +86,7 @@ export default function AlgoSelectModal({ onSave }: Props) {
                 <div className="stat place-items-center border-l">
                   <div className="stat-title">Complexity</div>
                   <div className="stat-value text-3xl">
-                    <InlineMath math={algo.complexity.bigO.value} />
+                    <Tex>{algo.complexity.bigO.value}</Tex>
                   </div>
                   {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
                 </div>

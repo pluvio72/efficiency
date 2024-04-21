@@ -1,11 +1,11 @@
 "use client";
 
-import AlgoDetailsModal from "@/components/AlgoDetailsModal";
-import Tag from "@/components/Tag";
+import AlgoDetailsModal from "@/components/pages/browse/AlgoDetailsModal";
+import Tag from "@/components/ui/Tag";
 import { ALGORITHMS } from "@/data/algorithms";
 import { Algorithm } from "@/types";
-import { useState } from "react";
-import { InlineMath } from "react-katex";
+import { useRef, useState } from "react";
+import Tex from "@matejmazur/react-katex";
 
 export default function Browse() {
   const [selected, setSelected] = useState<Algorithm>();
@@ -13,7 +13,6 @@ export default function Browse() {
 
   const onSelect = (algo: Algorithm) => {
     setSelected(algo);
-    (document.getElementById("algo_details") as any).showModal();
     setDetailModalOpen(true);
   };
 
@@ -63,7 +62,7 @@ export default function Browse() {
               <div className="stat place-items-center border-l">
                 <div className="stat-title">Complexity</div>
                 <div className="stat-value text-3xl">
-                  <InlineMath math={algo.complexity.bigO.value} />
+                  <Tex>{algo.complexity.bigO.value}</Tex>
                 </div>
               </div>
             </div>

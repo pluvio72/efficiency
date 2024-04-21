@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 
+import "katex/dist/katex.min.css";
+import ThemeProvider from "@/components/ThemeProvider";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -33,7 +36,9 @@ export default function RootLayout({
             </ul>
           </div>
         </div>
-        {children}
+        <ThemeProvider defaultTheme="dark" attribute="class">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

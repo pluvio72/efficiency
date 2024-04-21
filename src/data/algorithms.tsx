@@ -23,7 +23,7 @@ export const ALGORITHMS = [
       },
     },
     description:
-      "Sunt in esse ipsum sunt excepteur proident occaecat.Sit aute tempor ex elit culpa sunt.Et deserunt reprehenderit aliqua elit mollit adipisicing aute. Eu veniam ullamco amet fugiat ut est reprehenderit deserunt ex ex aliquip incididunt culpa. Non irure dolore sit qui amet nisi laborum ea. Cupidatat officia eu adipisicing qui labore laboris eiusmod sint elit nulla esse aliqua. Reprehenderit exercitation consequat sint voluptate sit ullamco duis do ullamco esse nulla exercitation ut.",
+      "Bubble sort is your 'Hello World' algorithm: a good introduction. It works by 'bubbling' (moving) the largest unsorted to the end of the array. It is inneffective for any large data-sets.",
     strengths: ["Stable", "Easy to understand & implement"],
     weaknesses: ["Slow for large data sets"],
   },
@@ -38,17 +38,18 @@ export const ALGORITHMS = [
         toolTip: "",
       },
       bestCase: {
-        value: "",
-        type: "Quadratic",
+        value: "n",
+        type: "Linear",
         toolTip: "",
       },
       worstCase: {
-        value: "",
+        value: "n^2",
         type: "Quadratic",
         toolTip: "",
       },
     },
-    description: "",
+    description:
+      "Insertion sort splits the array into two sections: sorted and unsorted. It iteratively adds each element into the sorted array. It is an 'in-place' and 'stable' sorting algorithm. It is similar to sorting playing cards in your hand.",
     strengths: [],
     weaknesses: [],
   },

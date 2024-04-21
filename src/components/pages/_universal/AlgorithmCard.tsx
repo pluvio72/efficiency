@@ -29,9 +29,7 @@ export default function AlgorithmCard({
         </h4>
       </div>
       <div className="flex flex-col items-center justify-evenly border-r w-full">
-        <div className="font-light text-sm text-muted-foreground">
-          Description
-        </div>
+        <div className="font-light text-sm text-muted-foreground">Tags</div>
         <div className="text-sm">
           {details.tags.map((tag) => (
             <Tag key={tag} name={tag} />

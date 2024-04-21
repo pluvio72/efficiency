@@ -30,7 +30,7 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
                 <Tex>{details?.complexity.bigO.value}</Tex>
               </div>
               <div className="font-light text-xsm text-muted-foreground">
-                Quadratic
+                {details?.complexity.bigO.type}
               </div>
             </div>
             <div className="flex flex-col items-center justify-center">

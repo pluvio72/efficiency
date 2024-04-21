@@ -1,11 +1,11 @@
 "use client";
 
 import AlgoSelectModal from "@/components/pages/compare/AlgoSelectModal";
-import ControlBar from "@/components/ControlBar";
+import ControlBar from "@/components/pages/compare/ControlBar";
 import { Algorithm } from "@/types";
 import { PencilIcon, PlusCircleIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-import DataInputModal from "@/components/DataInputModal";
+import DataInputModal from "@/components/pages/compare/DataInputModal";
 
 export default function Compare() {
   const [data, setData] = useState<number[]>([]);

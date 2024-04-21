@@ -2,9 +2,9 @@
 
 import { generateColorArray } from "@/util/Colors";
 import { useCallback, useEffect, useState } from "react";
-import anime, { AnimeInstance } from "animejs";
+import anime from "animejs";
 import { ArrowPathIcon, EyeIcon, PlayIcon } from "@heroicons/react/16/solid";
-import CodeViewModal from "../../CodeViewModal";
+import CodeViewModal from "./CodeViewModal";
 import { Algorithm } from "@/types";
 import {
   GENERATOR_KEY_MAP,

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
 
 import "katex/dist/katex.min.css";
 import ThemeProvider from "@/components/ThemeProvider";
+import Navbar from "@/components/ui/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,21 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="navbar">
-          <div className="flex-1">
-            <a className="btn btn-ghost text-xl">efficiency</a>
-          </div>
-          <div className="flex-none">
-            <ul className="menu menu-horizontal px-1">
-              <li>
-                <Link href="/browse">Browse</Link>
-              </li>
-              <li>
-                <Link href="/compare">Compare</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <Navbar />
         <ThemeProvider defaultTheme="dark" attribute="class">
           {children}
         </ThemeProvider>

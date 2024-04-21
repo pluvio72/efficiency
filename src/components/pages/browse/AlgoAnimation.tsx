@@ -75,9 +75,7 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
   };
 
   return (
-    <div
-      className={`relative flex flex-row w-full h-full items-center justify-center gap-x-[10px] rounded-md`}
-    >
+    <div className="relative flex flex-row w-full h-full items-center justify-center gap-x-[10px] rounded-md">
       {data.map((item) => (
         <div
           key={item}
@@ -89,22 +87,22 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
           className={`rounded-md card-item-${item} card-item`}
         />
       ))}
-      <div className="absolute top-0 right-0 bg-gray-500 p-1 rounded-md flex">
+      <div className="absolute top-0 right-0 p-1 rounded-md flex">
         <span
-          className="text-black cursor-pointer text-sm flex items-center border-r border-slate-700 px-2"
+          className="cursor-pointer text-sm flex items-center px-2"
           onClick={showCode}
         >
           Code
           <EyeIcon className="ml-1 h-4 w-4" />
         </span>
         <span
-          className="text-black cursor-pointer text-sm flex border-r border-slate-700 items-center px-2"
+          className="cursor-pointer text-sm flex items-center px-2"
           onClick={reset}
         >
           Reset <ArrowPathIcon className="h-4 w-4 ml-1" />
         </span>
         <span
-          className="text-black cursor-pointer text-sm flex items-center px-2"
+          className="cursor-pointer text-sm flex items-center px-2"
           onClick={animate}
         >
           Play <PlayIcon className="h-4 w-4" />

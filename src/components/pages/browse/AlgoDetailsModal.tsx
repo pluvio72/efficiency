@@ -17,78 +17,61 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
         <DialogHeader>
           <DialogTitle>{details?.name}</DialogTitle>
         </DialogHeader>
-        <div className="w-full h-[300px] bg-base-300 rounded-md">
-          <AlgoAnimation details={details} parentModalOpen={open} />
-        </div>
-        <p className="py-4">{details?.description}</p>
-        <div className="flex flex-row">
-          <div className="stats shadow">
-            <div className="stat">
-              <div className="stat-title">Big O</div>
-              <div className="stat-value text-center">
+        <div className="w-full h-[300px] flex">
+          <div className="bg-accent rounded-md flex-grow">
+            <AlgoAnimation details={details} parentModalOpen={open} />
+          </div>
+          <div className="flex flex-col justify-evenly ml-4">
+            <div className="flex flex-col items-center justify-center">
+              <div className="font-light text-sm text-muted-foreground">
+                Big O
+              </div>
+              <div className="scroll-m-20 text-3xl font-semibold tracking-tight">
                 <Tex>{details?.complexity.bigO.value}</Tex>
               </div>
-              <div className="stat-desc">Quadratic</div>
+              <div className="font-light text-xsm text-muted-foreground">
+                Quadratic
+              </div>
             </div>
-            <div className="stat">
-              <div className="stat-title">Best Case</div>
-              <div className="stat-value text-center">
+            <div className="flex flex-col items-center justify-center">
+              <div className="font-light text-sm text-muted-foreground">
+                Best Case
+              </div>
+              <div className="scroll-m-20 text-3xl font-semibold tracking-tight">
                 {details?.complexity.bestCase.value ? (
                   <Tex>{details?.complexity.bestCase.value}</Tex>
                 ) : (
                   "NA"
                 )}
               </div>
-              <div className="stat-desc">
+              <div className="font-light text-xsm text-muted-foreground">
                 {details?.complexity.bestCase.type}
               </div>
             </div>
-            <div className="stat">
-              <div className="stat-title">Worst Case</div>
-              <div className="stat-value text-center">
+            <div className="flex flex-col items-center justify-center">
+              <div className="font-light text-sm text-muted-foreground">
+                Worst Case
+              </div>
+              <div className="scroll-m-20 text-3xl font-semibold tracking-tight">
                 {details?.complexity.worstCase.value ? (
                   <Tex>{details?.complexity.worstCase.value}</Tex>
                 ) : (
                   "NA"
                 )}
               </div>
-              <div className="stat-desc">
+              <div className="font-light text-xsm text-muted-foreground">
                 {details?.complexity.worstCase.type}
               </div>
             </div>
           </div>
-          <div className="columns-2 flex-grow text-black">
-            <div className="bg-green-300 rounded-md p-4">
-              <div className="text-center">
-                <span className="font-bold text-center">Strengths</span>
-              </div>
-              <div>
-                <ul>
-                  {details?.strengths.map((strength) => (
-                    <li key={strength}>{strength}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="bg-red-300 rounded-md p-4">
-              <div className="text-center">
-                <span className="font-bold">Weaknesses</span>
-              </div>
-              <div>
-                <ul>
-                  {details?.weaknesses.map((weakness) => (
-                    <li key={weakness}>{weakness}</li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
         </div>
-        <form method="dialog" className="modal-backdrop mt-2">
-          <button className="btn" onClick={() => setOpen(false)}>
-            Close
-          </button>
-        </form>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          {details?.description}
+          <a className="text-bold text-gray-600">
+            {" "}
+            I&apos;m lazy give me the TLDR;
+          </a>
+        </p>
       </DialogContent>
     </Dialog>
   );

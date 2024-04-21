@@ -3,9 +3,11 @@
 import AlgoSelectModal from "@/components/pages/compare/AlgoSelectModal";
 import ControlBar from "@/components/pages/compare/ControlBar";
 import { Algorithm } from "@/types";
-import { PencilIcon, PlusCircleIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
 import DataInputModal from "@/components/pages/compare/DataInputModal";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import { PencilIcon, PlusIcon } from "lucide-react";
 
 export default function Compare() {
   const [data, setData] = useState<number[]>([]);
@@ -13,13 +15,11 @@ export default function Compare() {
   const [runTimes, setRunTimes] = useState<number[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const openAlgoSelectModal = () => {
-    (document.getElementById("algo_select") as any).showModal();
-  };
+  const [dataInputModalOpen, setDataInputModalOpen] = useState(false);
+  const [algoSelectModalOpen, setAlgoSelectModalOpen] = useState(false);
 
-  const openDataInputModal = () => {
-    (document.getElementById("data_input") as any).showModal();
-  };
+  const openAlgoSelectModal = () => setAlgoSelectModalOpen(true);
+  const openDataInputModal = () => setDataInputModalOpen(true);
 
   const onAlgosSelected = (selected: Algorithm[]) => {
     setSelectedAlgos(selected);
@@ -62,12 +62,12 @@ export default function Compare() {
         <span className="text-md mb-4">
           Input your test data or random data below.
         </span>
-        <button className="btn btn-wide text-lg" onClick={openDataInputModal}>
+        <Button onClick={openDataInputModal}>
+          <PencilIcon className="h-5 w-5 mr-2" />
           Input data
-          <PencilIcon className="h-5 w-5" />
-        </button>
+        </Button>
       </div>
-      <div className="divider">CHOOSE ALGORITHMS</div>
+      <Separator />
       <div className="flex flex-col w-full">
         {selectedAlgos.map((algo, index) => {
           const name = algo.name.split(" ");
@@ -88,17 +88,22 @@ export default function Compare() {
           );
         })}
         <div className="flex items-center flex-col">
-          <button
-            className="btn btn-wide text-lg"
-            onClick={openAlgoSelectModal}
-          >
+          <Button onClick={openAlgoSelectModal}>
+            <PlusIcon className="h-5 w-5 mr-2" />
             Select algorithms
-            <PlusCircleIcon className="h-5 w-5" />
-          </button>
+          </Button>
         </div>
       </div>
-      <AlgoSelectModal onSave={onAlgosSelected} />
-      <DataInputModal onSave={setData} />
+      <AlgoSelectModal
+        open={algoSelectModalOpen}
+        setOpen={setAlgoSelectModalOpen}
+        onSave={onAlgosSelected}
+      />
+      <DataInputModal
+        open={dataInputModalOpen}
+        setOpen={setDataInputModalOpen}
+        onSave={setData}
+      />
     </main>
   );
 }

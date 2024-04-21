@@ -1,8 +1,11 @@
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
 const GENERATE_SIZE = 500;
 
-export default function DataInputModal({ onSave }: Props) {
+export default function DataInputModal({ open, setOpen, onSave }: Props) {
   const [data, setData] = useState<number[]>([]);
 
   const generate = () => {
@@ -16,30 +19,28 @@ export default function DataInputModal({ onSave }: Props) {
   const _onSave = () => onSave(data);
 
   return (
-    <dialog id="data_input" className="modal">
-      <div className="modal-box w-[50%]">
-        <textarea
-          className="textarea w-full h-[450px] textarea-bordered"
-          placeholder="Enter comma seperated values...: 1,5,12"
-          value={data.join(", ")}
-        ></textarea>
-        <div className="modal-action flex justify-between">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn btn-info" onClick={generate}>
-            Generate
-          </button>
-          <form method="dialog">
-            <button className="btn mx-2">Close</button>
-            <button className="btn btn-primary mx-2" onClick={_onSave}>
-              Save
-            </button>
-          </form>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="w-[50%]">
+        <div className="mt-4">
+          <Textarea
+            className="w-full h-[450px]"
+            placeholder="Enter comma seperated values...: 1,5,12"
+            value={data.join(", ")}
+          />
         </div>
-      </div>
-    </dialog>
+        <div className="flex justify-between">
+          <Button onClick={generate}>Generate</Button>
+          <Button className="mx-2" onClick={_onSave}>
+            Save
+          </Button>
+        </div>
+      </DialogContent>
+    </Dialog>
   );
 }
 
 interface Props {
+  open: boolean;
+  setOpen: (newVal: boolean) => void;
   onSave: (data: number[]) => void;
 }

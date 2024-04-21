@@ -4,10 +4,13 @@ import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
 import Tag from "../../ui/Tag";
 import Tex from "@matejmazur/react-katex";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import AlgorithmCard from "../_universal/AlgorithmCard";
 
 const ITEMS_PER_PAGE = 5;
 
-export default function AlgoSelectModal({ onSave }: Props) {
+export default function AlgoSelectModal({ open, setOpen, onSave }: Props) {
   const [page, setPage] = useState(0);
   const [selected, setSelected] = useState<Algorithm[]>([]);
   const [filter, setFilter] = useState("");
@@ -43,56 +46,24 @@ export default function AlgoSelectModal({ onSave }: Props) {
   const _onSave = () => onSave(selected);
 
   return (
-    <dialog id="algo_select" className="modal">
-      <div className="modal-box w-[75%] overflow-hidden px-0">
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="w-[75%] overflow-hidden">
         <div className="px-6">
-          <label className="input input-bordered flex items-center gap-2">
-            <input
-              type="text"
-              className="grow"
-              placeholder="Search"
-              onChange={onChangeFilter}
-            />
-            <kbd className="kbd kbd-sm">⌘</kbd>
-            <kbd className="kbd kbd-sm">K</kbd>
-          </label>
+          <Input
+            type="text"
+            className="grow"
+            placeholder="Search"
+            onChange={onChangeFilter}
+          />
         </div>
         <div className="p-6">
-          {filteredData.map((algo) => {
-            const name = algo.name.split(" ");
-            return (
-              <div
-                key={algo.key}
-                className={clsx(
-                  "flex flex-row shadow w-full transition cursor-pointer shadow-3xl mb-4 rounded-lg",
-                  isSelected(algo) ? "bg-gray-600" : "hover:bg-gray-700"
-                )}
-                onClick={() => select(algo)}
-              >
-                <div className="stat place-items-left border-r">
-                  <div className="stat-value text-2xl">{name[0]}</div>
-                  <div className="stat-value text-2xl">{name[1]}</div>
-                </div>
-                <div className="stat place-items-center">
-                  <div className="stat-title">Description</div>
-                  {/* <div className="stat-value text-secondary">4,200</div> */}
-                  {/* <div className="stat-desc">↗︎ 40 (2%)</div> */}
-                  <div className="text-sm">
-                    {algo.tags.map((tag) => (
-                      <Tag key={tag} name={tag} />
-                    ))}
-                  </div>
-                </div>
-                <div className="stat place-items-center border-l">
-                  <div className="stat-title">Complexity</div>
-                  <div className="stat-value text-3xl">
-                    <Tex>{algo.complexity.bigO.value}</Tex>
-                  </div>
-                  {/* <div className="stat-desc">↘︎ 90 (14%)</div> */}
-                </div>
-              </div>
-            );
-          })}
+          {filteredData.map((algo) => (
+            <AlgorithmCard
+              onClick={() => select(algo)}
+              key={algo.key}
+              details={algo}
+            />
+          ))}
         </div>
         <div className="modal-action flex justify-center mt-0">
           <div className="join">
@@ -112,11 +83,13 @@ export default function AlgoSelectModal({ onSave }: Props) {
             </button>
           </form>
         </div>
-      </div>
-    </dialog>
+      </DialogContent>
+    </Dialog>
   );
 }
 
 interface Props {
+  open: boolean;
+  setOpen: (newVal: boolean) => void;
   onSave: (selected: Algorithm[]) => void;
 }

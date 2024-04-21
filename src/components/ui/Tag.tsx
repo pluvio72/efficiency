@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Badge } from "./badge";
 
 // fix type extract to keys array type
 const KEYS: { [key: string]: string } = {
@@ -7,7 +8,7 @@ const KEYS: { [key: string]: string } = {
 };
 
 export default function Tag({ name }: Props) {
-  return <div className={clsx("badge mx-1 mb-1", KEYS[name])}>{name}</div>;
+  return <Badge className={clsx("badge mx-1 mb-1", KEYS[name])}>{name}</Badge>;
 }
 
 interface Props {

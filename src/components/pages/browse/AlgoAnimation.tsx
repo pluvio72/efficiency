@@ -20,6 +20,7 @@ const DEFAULT_DATA = [8, 5, 6, 3, 1, 2, 4, 7];
 export default function AlgoAnimation({ details, parentModalOpen }: Props) {
   // TODO: rethink use of data here as state, currently being used as normal var
   const [data, setData] = useState<number[]>(DEFAULT_DATA);
+  const [codeViewModalOpen, setCodeViewModalOpen] = useState(false);
 
   const cols = generateColorArray("#ffffff", "#000000", data.length);
 
@@ -70,9 +71,7 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
     }
   };
 
-  const showCode = () => {
-    (document.getElementById("code_view") as any).showModal();
-  };
+  const showCode = () => setCodeViewModalOpen(true);
 
   return (
     <div className="relative flex flex-row w-full h-full items-center justify-center gap-x-[10px] rounded-md">
@@ -108,7 +107,11 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
           Play <PlayIcon className="h-4 w-4" />
         </span>
       </div>
-      <CodeViewModal func={KEY_MAP[details.key]} />
+      <CodeViewModal
+        open={codeViewModalOpen}
+        setOpen={setCodeViewModalOpen}
+        func={KEY_MAP[details.key]}
+      />
     </div>
   );
 }

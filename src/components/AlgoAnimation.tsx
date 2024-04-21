@@ -22,14 +22,15 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
 
   useEffect(() => {
     if (!parentModalOpen) {
-      setData([8, 5, 6, 3, 1, 2, 4, 7]);
-      // t1.seek(0);
+      for (let i = 0; i < data.length; i++) {
+        const items = document.getElementsByClassName(`card-item-${data[i]}`);
+        items[0].classList.remove("transform");
+      }
     }
   }, [parentModalOpen]);
 
   const animate = async () => {
-    const generator = GENERATOR_KEY_MAP[details.key](data);
-    const t1 = anime.timeline({}, 100);
+    const generator = GENERATOR_KEY_MAP[details.key]([...data]);
 
     let result = generator.next();
     let _data = [...data];
@@ -48,7 +49,7 @@ export default function AlgoAnimation({ details, parentModalOpen }: Props) {
               let val = diff * CARD_WIDTH + diff * CARD_PADDING;
 
               // console.log(`movin el: ${_data[j]}, pixels: ${val}`);
-              t1.add({
+              anime({
                 targets: `.card-item-${_data[j]}`,
                 translateX: val,
               });

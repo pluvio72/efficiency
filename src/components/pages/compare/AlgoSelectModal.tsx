@@ -7,8 +7,18 @@ import Tex from "@matejmazur/react-katex";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import AlgorithmCard from "../_universal/AlgorithmCard";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+import { Button } from "@/components/ui/button";
 
-const ITEMS_PER_PAGE = 5;
+const ITEMS_PER_PAGE = 6;
 
 export default function AlgoSelectModal({ open, setOpen, onSave }: Props) {
   const [page, setPage] = useState(0);
@@ -43,45 +53,57 @@ export default function AlgoSelectModal({ open, setOpen, onSave }: Props) {
     e.name.toLowerCase().includes(filter.toLowerCase())
   ).slice(page * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE + ITEMS_PER_PAGE);
 
-  const _onSave = () => onSave(selected);
+  const _onSave = () => {
+    onSave(selected);
+    setOpen(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="w-[75%] overflow-hidden">
-        <div className="px-6">
-          <Input
-            type="text"
-            className="grow"
-            placeholder="Search"
-            onChange={onChangeFilter}
+        <Input
+          type="text"
+          className="grow"
+          placeholder="Search"
+          onChange={onChangeFilter}
+        />
+        {filteredData.map((algo) => (
+          <AlgorithmCard
+            onClick={() => select(algo)}
+            key={algo.key}
+            details={algo}
+            isSelected={isSelected(algo)}
           />
-        </div>
-        <div className="p-6">
-          {filteredData.map((algo) => (
-            <AlgorithmCard
-              onClick={() => select(algo)}
-              key={algo.key}
-              details={algo}
-            />
-          ))}
-        </div>
-        <div className="modal-action flex justify-center mt-0">
-          <div className="join">
-            <button onClick={prevPage} className="join-item btn">
-              «
-            </button>
-            <button className="join-item btn">Page {page + 1}</button>
-            <button onClick={nextPage} className="join-item btn">
-              »
-            </button>
-          </div>
-          {/* if there is a button in form, it will close the modal */}
-          <form method="dialog">
-            <button className="btn mx-2">Close</button>
-            <button className="btn btn-primary mx-2" onClick={_onSave}>
-              Save
-            </button>
-          </form>
+        ))}
+        <div className="flex">
+          <Pagination>
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious onClick={prevPage} />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">1</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#" isActive>
+                  2
+                </PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">3</PaginationLink>
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationNext onClick={nextPage} />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+          <Button className="mx-2">Close</Button>
+          <Button className="mx-2" onClick={_onSave}>
+            Save
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

@@ -16,7 +16,10 @@ export default function DataInputModal({ open, setOpen, onSave }: Props) {
     setData(values);
   };
 
-  const _onSave = () => onSave(data);
+  const _onSave = () => {
+    onSave(data);
+    setOpen(false);
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

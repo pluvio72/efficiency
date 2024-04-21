@@ -47,7 +47,12 @@ export default function Compare() {
 
   const renderRuntime = (runTimeVal?: number) => {
     if (loading) {
-      return <span className="loading loading-dots loading-sm"></span>;
+      return (
+        <div className="grid grid-cols-2 gap-4 w-[100px] my-3">
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+          <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+        </div>
+      );
     } else if (runTimeVal) {
       return <span className="stat-value text-2xl">{runTimeVal} ms</span>;
     } else {
@@ -74,14 +79,16 @@ export default function Compare() {
           return (
             <div
               key={algo.key}
-              className="flex flex-row w-full mb-4 rounded-lg bg-neutral"
+              className="flex flex-row w-full mb-4 rounded-lg border py-4 px-8 justify-center"
             >
-              <div className="stat place-items-left border-r">
+              <div className="flex flex-col justify-center border-r w-full">
                 <span className="stat-value text-2xl">{name[0]}</span>
                 <span className="stat-value text-2xl">{name[1]}</span>
               </div>
-              <div className="stat">
-                <span className="stat-title">Runtime</span>
+              <div className="flex flex-col justify-center items-center w-full">
+                <span className="font-light text-sm text-muted-foreground">
+                  Runtime
+                </span>
                 {renderRuntime(runTimes[index])}
               </div>
             </div>

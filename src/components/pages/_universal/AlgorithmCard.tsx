@@ -1,15 +1,23 @@
 import Tag from "@/components/ui/Tag";
 import { Algorithm } from "@/types";
 import Tex from "@matejmazur/react-katex";
+import clsx from "clsx";
 
-export default function AlgorithmCard({ details, onClick }: Props) {
+export default function AlgorithmCard({
+  parentClassName,
+  isSelected,
+  details,
+  onClick,
+}: Props) {
   const name = details.name.split(" ");
 
   return (
     <div
-      className={
-        "flex flex-row justify-evenly transition cursor-pointer mb-4 rounded-lg hover:bg-accent border px-6 py-2"
-      }
+      className={clsx(
+        "flex flex-row justify-evenly transition cursor-pointer rounded-lg hover:bg-accent border px-6 py-2",
+        parentClassName,
+        isSelected && "bg-accent"
+      )}
       onClick={onClick}
     >
       <div className="flex flex-col justify-center border-r w-full">
@@ -43,6 +51,8 @@ export default function AlgorithmCard({ details, onClick }: Props) {
 }
 
 interface Props {
+  parentClassName?: string;
+  isSelected?: boolean;
   onClick?: () => void;
   details: Algorithm;
 }

@@ -29,6 +29,7 @@ export default function Browse() {
             onClick={() => onSelect(algo)}
             details={algo}
             key={algo.key}
+            parentClassName="mb-4"
           />
         ))}
       </div>

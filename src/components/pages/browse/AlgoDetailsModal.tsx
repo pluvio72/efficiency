@@ -9,8 +9,14 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import AlgoTldrModal from "./AlgoTldrModal";
+import { useState } from "react";
 
 export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
+  const [tldrModalOpen, setTldrModalOpen] = useState(false);
+
+  const openTldrModal = () => setTldrModalOpen(true);
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="w-[70%]">
@@ -67,11 +73,20 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
         </div>
         <p className="leading-7 [&:not(:first-child)]:mt-6">
           {details?.description}
-          <a className="text-bold text-gray-600">
+          <a
+            className="text-bold text-gray-600 cursor-pointer hover:text-gray-700 transition"
+            onClick={openTldrModal}
+          >
             {" "}
             I&apos;m lazy give me the TLDR;
           </a>
         </p>
+        <AlgoTldrModal
+          open={tldrModalOpen}
+          setOpen={setTldrModalOpen}
+          strengths={details?.strengths || []}
+          weaknesses={details?.weaknesses || []}
+        />
       </DialogContent>
     </Dialog>
   );

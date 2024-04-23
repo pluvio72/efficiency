@@ -1,13 +1,11 @@
 "use client";
 
 import AlgoDetailsModal from "@/components/pages/browse/AlgoDetailsModal";
-import Tag from "@/components/ui/Tag";
-import { ALGORITHMS } from "@/data/algorithms";
 import { Algorithm } from "@/types";
 import { useState } from "react";
-import Tex from "@matejmazur/react-katex";
 import { Input } from "@/components/ui/input";
 import AlgorithmCard from "@/components/pages/_universal/AlgorithmCard";
+import { ALGORITHMS } from "@/data/algorithms";
 
 export default function Browse() {
   const [selected, setSelected] = useState<Algorithm>();

@@ -1,11 +1,12 @@
 export type Algorithm = {
   key: string;
+  animation: string;
   name: string;
   tags: string[];
   complexity: {
     bigO: ComplexityItem;
     bestCase: ComplexityItem;
-    worstCase: ComplexityItem;
+    averageCase: ComplexityItem;
   };
   description: string;
   strengths: string[];
@@ -14,6 +15,7 @@ export type Algorithm = {
 
 type ComplexityItem = {
   value?: string;
-  type: "Linear" | "Quadratic" | "Exponential";
+  type: string;
+  // type: "Linear" | "Quadratic" | "Exponential";
   toolTip?: string;
 };

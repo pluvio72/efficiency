@@ -1,7 +1,6 @@
 "use client";
 
 import { Algorithm } from "@/types";
-import AlgoAnimation from "./AlgoAnimation";
 import Tex from "@matejmazur/react-katex";
 import {
   Dialog,
@@ -11,9 +10,12 @@ import {
 } from "@/components/ui/dialog";
 import AlgoTldrModal from "./AlgoTldrModal";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
   const [tldrModalOpen, setTldrModalOpen] = useState(false);
+
+  if (!details) return <></>;
 
   const openTldrModal = () => setTldrModalOpen(true);
 
@@ -25,7 +27,11 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
         </DialogHeader>
         <div className="w-full h-[300px] flex">
           <div className="bg-accent rounded-md flex-grow">
-            <AlgoAnimation details={details} parentModalOpen={open} />
+            {details.animation ? (
+              <Image src={details.animation} alt="Algo animation" />
+            ) : (
+              <span>Animation pending</span>
+            )}
           </div>
           <div className="flex flex-col justify-evenly ml-4">
             <div className="flex flex-col items-center justify-center">
@@ -56,17 +62,17 @@ export default function AlgoDetailsModal({ details, open, setOpen }: Props) {
             </div>
             <div className="flex flex-col items-center justify-center">
               <div className="font-light text-sm text-muted-foreground">
-                Worst Case
+                Average Case
               </div>
               <div className="scroll-m-20 text-3xl font-semibold tracking-tight">
-                {details?.complexity.worstCase.value ? (
-                  <Tex>{details?.complexity.worstCase.value}</Tex>
+                {details?.complexity.averageCase.value ? (
+                  <Tex>{details?.complexity.averageCase.value}</Tex>
                 ) : (
                   "NA"
                 )}
               </div>
               <div className="font-light text-xsm text-muted-foreground">
-                {details?.complexity.worstCase.type}
+                {details?.complexity.averageCase.type}
               </div>
             </div>
           </div>

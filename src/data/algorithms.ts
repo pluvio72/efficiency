@@ -30,7 +30,7 @@ export const ALGORITHMS = [
     key: "insertion_sort",
     name: "Insertion Sort",
     animation: "",
-    tags: ["Sort", "Stable"],
+    tags: ["Sort"],
     complexity: {
       bigO: {
         value: "n^2",
@@ -92,7 +92,7 @@ export const ALGORITHMS = [
   {
     key: "merge_sort",
     name: "Merge Sort",
-    tags: ["Stable", "Sort"],
+    tags: ["Sort"],
     animation: "",
     complexity: {
       bigO: {
@@ -149,7 +149,7 @@ export const ALGORITHMS = [
     key: "count_sort",
     name: "Count Sort",
     animation: "",
-    tags: ["Sort", "Stable"],
+    tags: ["Sort"],
     complexity: {
       bigO: {
         value: "n+m",
@@ -279,7 +279,7 @@ export const ALGORITHMS = [
     key: "tim_sort",
     name: "Tim Sort",
     animation: "",
-    tags: ["Stable", "Sort"],
+    tags: ["Sort"],
     complexity: {
       bigO: {
         value: "nlog(n)",

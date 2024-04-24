@@ -301,6 +301,60 @@ export const ALGORITHMS = [
     strengths: [],
     weaknesses: [],
   },
+  {
+    key: "linear_search",
+    name: "Linear Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "n",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "n",
+        type: "Linear",
+        toolTip: "",
+      },
+    },
+    description:
+      "Search through an array each element at a time for the desired element. Most basic search algorithm possible.",
+    strengths: ["Simplicity"],
+    weaknesses: ["Poor scalability"],
+  },
+  {
+    key: "binary_search",
+    name: "Linear Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+    },
+    description:
+      "Repeatedly split array in half until desired element is found.",
+    strengths: ["Simplicity"],
+    weaknesses: [""],
+  },
 ];
 
 const ALGORITHM_KEYS = ALGORITHMS.map((e) => e.key);

@@ -13,13 +13,13 @@ export default function Navbar() {
           href="/browse"
           className="hover:bg-neutral-800 py-2 px-4 rounded-md font-light"
         >
-          Browse
+          Categories
         </Link>
         <Link
           href="/compare"
           className="hover:bg-neutral-800 py-2 px-4 rounded-md font-light"
         >
-          Compare
+          Articles
         </Link>
       </div>
     </div>

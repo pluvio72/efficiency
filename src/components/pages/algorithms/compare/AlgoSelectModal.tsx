@@ -2,11 +2,11 @@ import { ALGORITHMS } from "@/data/algorithms";
 import { Algorithm } from "@/types";
 import clsx from "clsx";
 import { ChangeEvent, useState } from "react";
-import Tag from "../../ui/Tag";
+import Tag from "../../../ui/Tag";
 import Tex from "@matejmazur/react-katex";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import AlgorithmCard from "../_universal/AlgorithmCard";
+import AlgorithmCard from "../AlgorithmCard";
 import {
   Pagination,
   PaginationContent,

@@ -1,10 +1,10 @@
 "use client";
 
-import AlgoSelectModal from "@/components/pages/compare/AlgoSelectModal";
-import ControlBar from "@/components/pages/compare/ControlBar";
+import AlgoSelectModal from "@/components/pages/algorithms/compare/AlgoSelectModal";
+import ControlBar from "@/components/pages/algorithms/compare/ControlBar";
 import { Algorithm } from "@/types";
 import { useState } from "react";
-import DataInputModal from "@/components/pages/compare/DataInputModal";
+import DataInputModal from "@/components/pages/algorithms/compare/DataInputModal";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { PencilIcon, PlusIcon } from "lucide-react";

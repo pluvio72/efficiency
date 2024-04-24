@@ -1,10 +1,10 @@
 "use client";
 
-import AlgoDetailsModal from "@/components/pages/browse/AlgoDetailsModal";
+import AlgoDetailsModal from "@/components/pages/algorithms/browse/AlgoDetailsModal";
 import { Algorithm } from "@/types";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import AlgorithmCard from "@/components/pages/_universal/AlgorithmCard";
+import AlgorithmCard from "@/components/pages/algorithms/AlgorithmCard";
 import { ALGORITHMS } from "@/data/algorithms";
 
 export default function Browse() {

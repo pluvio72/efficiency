@@ -81,9 +81,13 @@ export const ALGORITHMS = [
       },
     },
     description:
-      "Quick sort places a 'pivot' in the array (this is usually at the start or at the end but can also be random) and recursively splits the remaining elements into sub-arrays of elements larger and smaller than the pivot until an array of size 1 is made. Then the pivots of each are concatenated in order to generate the final sorted array.",
-    strengths: [],
-    weaknesses: [],
+      "Quick sort places a 'pivot' in the array (this is usually at the start or at the end but can also be random) and recursively splits the remaining elements into sub-arrays of elements larger and smaller than the pivot until an array of size 1 is made. Then the pivots of each are concatenated in order to generate the final sorted array. Note: the worst case complexity occurs when a poor pivot is chosen.",
+    strengths: ["Efficient on large data sets", "Low memory overhead"],
+    weaknesses: [
+      "Worst case is exponential complexity",
+      "Inneficient for small data-sets",
+      "Not-stable",
+    ],
   },
   {
     key: "merge_sort",
@@ -137,7 +141,7 @@ export const ALGORITHMS = [
         toolTip: "",
       },
     },
-    description: "",
+    description: "Is an algorithm based off the 'binary heap' data structure. ",
     strengths: [],
     weaknesses: [],
   },

@@ -3,26 +3,15 @@
 import Link from "next/link";
 import {
   Menubar,
-  MenubarCheckboxItem,
   MenubarContent,
   MenubarItem,
   MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
   MenubarSeparator,
-  MenubarShortcut,
   MenubarSub,
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
 } from "./menubar";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "./navigation-menu";
 
 export default function Navbar() {
   return (
@@ -56,20 +45,6 @@ export default function Navbar() {
           </MenubarContent>
         </MenubarMenu>
       </Menubar>
-      {/* <div className="flex-none gap-x-8 flex">
-        <Link
-          href="/browse"
-          className="hover:bg-neutral-800 py-2 px-4 rounded-md font-light"
-        >
-          Categories
-        </Link>
-        <Link
-          href="/compare"
-          className="hover:bg-neutral-800 py-2 px-4 rounded-md font-light"
-        >
-          Articles
-        </Link>
-      </div> */}
     </div>
   );
 }

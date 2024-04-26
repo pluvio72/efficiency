@@ -409,6 +409,86 @@ export const ALGORITHMS = [
     strengths: ["Simplicity"],
     weaknesses: ["Only works on sorted data"],
   },
+  {
+    key: "interpolation_search",
+    name: "Interpolation Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "n",
+        type: "Linear",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "log2(log2(n))",
+        type: "Quadratic",
+        toolTip: "",
+      },
+    },
+    description:
+      "Interpolation search is an improved binary search where binary search always uses a point k=(low+high)/2 Interpolation search uses heuristics to determine this k value. ",
+    strengths: ["Simplicity"],
+    weaknesses: ["Only works on sorted data"],
+  },
+  {
+    key: "exponential_search",
+    name: "Exponential Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+    },
+    description:
+      "Exponential search works by first finding a range which the desired element resides then performining binary search on that range. The range is found by starting off with size 1 (0-1) if the element is not at the end index or smaller then i is doubled (e.g. 2, 4...) when it is found to be smaller than arr[i] binary search is performed between i and i/2.",
+    strengths: ["Simplicity"],
+    weaknesses: ["Only works on sorted data"],
+  },
+  {
+    key: "fibonacci_search",
+    name: "Fibonacci Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "log(n)",
+        type: "Log",
+        toolTip: "",
+      },
+    },
+    description: "",
+    strengths: ["Simplicity"],
+    weaknesses: ["Only works on sorted data"],
+  },
 ];
 
 const ALGORITHM_KEYS = ALGORITHMS.map((e) => e.key);

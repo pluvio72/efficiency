@@ -66,7 +66,7 @@ export const ALGORITHMS = [
     complexity: {
       bigO: {
         value: "n^2",
-        type: "Exponential",
+        type: "Quadratic",
         toolTip: "",
       },
       bestCase: {
@@ -84,7 +84,7 @@ export const ALGORITHMS = [
       "Quick sort places a 'pivot' in the array (this is usually at the start or at the end but can also be random) and recursively splits the remaining elements into sub-arrays of elements larger and smaller than the pivot until an array of size 1 is made. Then the pivots of each are concatenated in order to generate the final sorted array. Note: the worst case complexity occurs when a poor pivot is chosen.",
     strengths: ["Efficient on large data sets", "Low memory overhead"],
     weaknesses: [
-      "Worst case is exponential complexity",
+      "Worst case is quadratic complexity",
       "Inneficient for small data-sets",
       "Not-stable",
     ],
@@ -353,7 +353,61 @@ export const ALGORITHMS = [
     description:
       "Repeatedly split array in half until desired element is found.",
     strengths: ["Simplicity"],
-    weaknesses: [""],
+    weaknesses: ["Only works on sorted data"],
+  },
+  {
+    key: "ternary_search",
+    name: "Ternary Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "log3(n)",
+        type: "Log",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "log3(n)",
+        type: "Log",
+        toolTip: "",
+      },
+    },
+    description:
+      "Ternary search finds an element in a sorted array. It divides the array into 3 parts similarly to binary search which divides it into 2, however the extra split reduces time complexity over binary search. ",
+    strengths: ["Simplicity"],
+    weaknesses: ["Only works on sorted data"],
+  },
+  {
+    key: "jump_search",
+    name: "Jump Search",
+    animation: "",
+    tags: ["Search"],
+    complexity: {
+      bigO: {
+        value: "n^1/2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+      bestCase: {
+        value: "1",
+        type: "Constant",
+        toolTip: "",
+      },
+      averageCase: {
+        value: "n^1/2",
+        type: "Quadratic",
+        toolTip: "",
+      },
+    },
+    description:
+      "Ternary search finds an element in a sorted array. It divides the array into 3 parts similarly to binary search which divides it into 2, however the extra split reduces time complexity over binary search. The most optimal value for the block size is root n.",
+    strengths: ["Simplicity"],
+    weaknesses: ["Only works on sorted data"],
   },
 ];
 

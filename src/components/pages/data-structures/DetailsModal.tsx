@@ -9,7 +9,7 @@ export function DetailsModal({ content, open, setOpen }: Props) {
 }
 
 interface Props {
-  content?: () => JSX.Element;
+  content?: (props: any) => JSX.Element;
   open: boolean;
   setOpen: (newVal: boolean) => void;
 }

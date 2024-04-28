@@ -35,7 +35,9 @@ export default function Navbar() {
               </MenubarSubContent>
             </MenubarSub>
             <MenubarSeparator />
-            <MenubarItem>Data Structures</MenubarItem>
+            <MenubarItem>
+              <Link href="/data-structures/browse">Data Structures</Link>
+            </MenubarItem>
           </MenubarContent>
         </MenubarMenu>
         <MenubarMenu>

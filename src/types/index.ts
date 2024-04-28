@@ -19,3 +19,10 @@ type ComplexityItem = {
   // type: "Linear" | "Quadratic" | "Exponential";
   toolTip?: string;
 };
+
+export type DataStructure = {
+  key: string;
+  name: string;
+  type: string;
+  content: (props: any) => JSX.Element;
+};

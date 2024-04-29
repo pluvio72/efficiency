@@ -1,3 +1,32 @@
 # Linked List
 
-A linked list is a linear collection of elements in which each node has a value and points to the next node in the list or has the value of 'null' as it's pointer which means it is the end of the list. The main advantages of a linked list over an array is that you can insert/remove elements without having to relocate the rest of the list (doesn't store data in contiguous manner like an array).
+> A linked list is a linear collection of nodes which together represent a sequence.
+
+### Specifics:
+
+- Each node has a value and points to the next node in the list or has the value of 'null' as it's pointer which means it is the end of the list
+- It doesn't store data in contiguous manner like an array.
+
+### Application:
+
+- Handle collisions in hash tables
+- Represent graphs
+- Allocating/deallocating memory dynamically
+
+There are multiple types of linked lists:
+
+- Singly linked list
+- Doubly linked list
+- Circular linked list
+
+#### Singly linked list
+
+Each node has a value and reference to the next node
+
+#### Doubly linked list
+
+Each node has a value, reference to the next node and reference to the previous node (except the head node).
+
+#### Circular linked list
+
+Same as singly linked list except the tail node's next node reference instead of being null points to the head node again creating a circle.

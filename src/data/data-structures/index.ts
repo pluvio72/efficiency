@@ -22,25 +22,25 @@ export const DATA_STRUCTURES: DataStructure[] = [
   {
     key: "hash_table",
     name: "Hash Table",
-    type: "",
+    type: "Hierachical",
     content: HashTable,
   },
   {
     key: "stack",
     name: "Stack",
-    type: "",
+    type: "Linear",
     content: Stack,
   },
   {
     key: "queue",
     name: "Queue",
-    type: "",
+    type: "Linear",
     content: Queue,
   },
   {
     key: "tree",
     name: "Tree",
-    type: "",
+    type: "Hierachical",
     content: Tree,
   },
 ];

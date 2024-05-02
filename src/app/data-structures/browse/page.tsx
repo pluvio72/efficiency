@@ -30,7 +30,7 @@ export default function Page() {
               </span>
             </div>
             <div className="flex flex-col items-center justify-evenly w-full">
-              <div className="font-light text-sm text-muted-foreground">
+              <div className="font-light text-sm text-muted-foreground pb-1">
                 Type
               </div>
               <div className="text-sm">

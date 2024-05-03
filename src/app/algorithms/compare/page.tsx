@@ -8,6 +8,7 @@ import DataInputModal from "@/components/pages/algorithms/compare/DataInputModal
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { PencilIcon, PlusIcon } from "lucide-react";
+import clsx from "clsx";
 
 export default function Compare() {
   const [data, setData] = useState<number[]>([]);
@@ -63,11 +64,16 @@ export default function Compare() {
   return (
     <main className="flex min-h-[95vh] flex-col items-center justify-evenly p-48">
       <ControlBar actions={{ run: runAlgos }} />
-      <div className="container flex flex-col items-center">
+      <div
+        className={clsx(
+          "container flex flex-col items-center",
+          selectedAlgos.length === 0 && "opacity-50"
+        )}
+      >
         <span className="text-md mb-4">
           Input your test data or random data below.
         </span>
-        <Button onClick={openDataInputModal}>
+        <Button onClick={openDataInputModal} disabled={!selectedAlgos.length}>
           <PencilIcon className="h-5 w-5 mr-2" />
           Input data
         </Button>
